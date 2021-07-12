@@ -30,7 +30,7 @@
 
 OSPI_HandleTypeDef hospi2;
 
-#define FLASH_CACHE_SIZE 4096
+#define FLASH_CACHE_SIZE 64*1024
 #define FLASH_CACHE_INVALID_ADDR 0xffffffff
 
 // FLASH
@@ -322,7 +322,7 @@ void board_flash_init(void)
 
 uint32_t board_flash_size(void)
 {
-	return W25Q128JVSIQ_FLASH_SIZE;
+	return BOARD_FLASH_SIZE;
 }
 
 void board_flash_read(uint32_t addr, void *buffer, uint32_t len)
