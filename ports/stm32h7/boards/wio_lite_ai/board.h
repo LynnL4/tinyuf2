@@ -84,6 +84,8 @@
 // #define UART_TX_PIN           GPIO_PIN_2
 // #define UART_RX_PIN           GPIO_PIN_3
 
+#define TINYUF2_DFU_DOUBLE_TAP  1
+
 void Error_Handler(void);
 void clock_init(void);
 void dfu_init(void);

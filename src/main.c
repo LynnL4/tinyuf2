@@ -43,7 +43,7 @@
 #ifndef DBL_TAP_REG
 // defined by linker script
 extern uint32_t _board_dfu_dbl_tap[];
-#define DBL_TAP_REG   _board_dfu_dbl_tap[0]
+#define DBL_TAP_REG   *(volatile uint32_t *)_board_dfu_dbl_tap
 #endif
 
 uint8_t const RGB_USB_UNMOUNTED[] = { 0xff, 0x00, 0x00 }; // Red
@@ -132,12 +132,14 @@ static bool check_dfu_mode(void)
   {
     // Double tap occurred
     DBL_TAP_REG = 0;
+    TUF2_LOG1_HEX(DBL_TAP_REG);
     TU_LOG1("Double Tap Reset\r\n");
     return true;
   }
 
   // Register our first reset for double reset detection
   DBL_TAP_REG = DBL_TAP_MAGIC;
+  TUF2_LOG1_HEX(DBL_TAP_REG);
 
   _timer_count = 0;
   board_timer_start(1);
@@ -156,8 +158,9 @@ static bool check_dfu_mode(void)
   // Turn off indicator
   board_rgb_write(RGB_OFF);
   board_led_write(0x00);
-
+  
   DBL_TAP_REG = 0;
+  TUF2_LOG1_HEX(DBL_TAP_REG);
 #endif
 
   return false;

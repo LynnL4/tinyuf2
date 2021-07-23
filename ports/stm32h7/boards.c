@@ -99,11 +99,13 @@ bool board_app_valid(void)
   return true;
 }
 extern void board_flash_memory_mapped(void);
+extern void psram_memoryMap(void);
 void board_app_jump(void)
 {
 
   TU_LOG1("board_app_jump!!!\n\r");  
   board_flash_memory_mapped();
+  psram_memoryMap();
 
   volatile uint32_t const * app_vector = (volatile uint32_t const*) BOARD_FLASH_APP_START;
   // TODO protect bootloader region
@@ -125,6 +127,11 @@ uint8_t board_usb_get_serial(uint8_t serial_id[16])
   uint8_t const len = 12;
   memcpy(serial_id, STM32_UUID, len);
   return len;
+}
+
+void board_flash_erase_app(void)
+{
+  // TODO implement later
 }
 
 //--------------------------------------------------------------------+

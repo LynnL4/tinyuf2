@@ -328,7 +328,6 @@ uint32_t board_flash_size(void)
 void board_flash_read(uint32_t addr, void *buffer, uint32_t len)
 {
 	uint32_t const phy_addr = (addr - BOARD_FLASH_APP_START);
-	TU_LOG1("board_flash_read addr:%lu len:%lu\n\r", phy_addr, len);
 	W25Q128JVSIQ_ReadQuad(&hospi2, buffer, phy_addr, len);
 }
 
@@ -338,7 +337,6 @@ void board_flash_flush(void)
 
 	if (_flash_page_addr == NO_CACHE)
 		return;
-	TU_LOG1("Erase and Write at address = 0x%08lX\r\n", _flash_page_addr);
 
 	// Skip if data is the same
 	if (1)

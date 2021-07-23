@@ -280,29 +280,25 @@ void EnableMemMapped(void)
 
 static inline void psram_delay(uint32_t delay)
 {
-    for(uint32_t i = 0;i < 66000;i ++)
+    for(uint32_t i = 0;i < 100000;i ++)
         for(uint32_t j = 0;j < delay;j ++)
-            ;
+            asm("nop");
 }
 
 void psram_init(void)
 {
     TU_LOG1("psram init\r\n");
     MX_OCTOSPI1_Init(); 
-
-	/* Calibration delay module */                
-    DLYB_OCTOSPI1_Calibration(1);		
-	psram_delay(100);
-
-    /*Calibration PSRAM*/
-    uint8_t regs;
+	uint8_t regs;
 	regs = 0x08;
+	psram_delay(50);
+	DLYB_OCTOSPI1_Calibration(1);	
+	psram_delay(50);	
 	PsramRegWrite(&regs,0);
-    psram_delay(500);
-    
-    psram_delay(500);
-
-	/* Memory Map */
+    psram_delay(50);
+}
+void psram_memoryMap(void)
+{
     EnableMemMapped();
-    psram_delay(500);
+    psram_delay(1500);
 }
