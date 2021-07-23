@@ -116,19 +116,7 @@ void board_app_jump(void)
   // Set stack pointer
   __set_MSP(app_vector[0]);
   // Jump to Application Entry
-  // uint8_t *temp = (uint8_t *)BOARD_FLASH_APP_START;
-  // TU_LOG1("jump app\r\n"); 
-  // for(int i = 0; i < 16; i++)
-  //   for(int j = 0; j < 1024; j++)
-  //   {
-  //     if(j % 32 == 0)TU_LOG1("\n\r");
-  //       TU_LOG1("0x%2x ", *temp++);
-  //   }
-  // while (1)
-  // {
-  //   /* code */
-  // }
-  
+  TU_LOG1("jump app\r\n"); 
   asm( "bx %0" ::"r"(app_vector[1])); 
 }
 

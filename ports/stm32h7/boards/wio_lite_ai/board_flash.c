@@ -30,7 +30,7 @@
 
 OSPI_HandleTypeDef hospi2;
 
-#define FLASH_CACHE_SIZE 64*1024
+#define FLASH_CACHE_SIZE 4096
 #define FLASH_CACHE_INVALID_ADDR 0xffffffff
 
 // FLASH

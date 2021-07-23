@@ -1104,5 +1104,3 @@ int32_t W25Q128JVSIQ_WriteStatusRegister(OSPI_HandleTypeDef *Ctx, uint8_t Index,
 
   return W25Q128JVSIQ_OK;
 }
-
-

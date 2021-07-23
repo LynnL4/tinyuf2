@@ -69,7 +69,7 @@
 #define USB_PRODUCT       "Wio Lite AI"
 
 #define UF2_PRODUCT_NAME  USB_MANUFACTURER " " USB_PRODUCT
-#define UF2_BOARD_ID      "WIO-LITE-AI-rev1"
+#define UF2_BOARD_ID      "Wio Lite AI-rev1"
 #define UF2_VOLUME_LABEL  "Arduino"
 #define UF2_INDEX_URL     "https://www.seeedstudio.com"
 
