@@ -144,7 +144,7 @@ void clock_init(void)
    TU_LOG1("Clock Init\r\n");
 
    SystemClock_Config();
-   OSPI_Clock_Init(264);
+   OSPI_Clock_Init(266);
 
    /* GPIO Ports Clock Enable */
    __HAL_RCC_GPIOC_CLK_ENABLE();

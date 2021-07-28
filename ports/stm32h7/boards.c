@@ -99,13 +99,11 @@ bool board_app_valid(void)
   return true;
 }
 extern void board_flash_memory_mapped(void);
-extern void psram_memoryMap(void);
 void board_app_jump(void)
 {
 
   TU_LOG1("board_app_jump!!!\n\r");  
   board_flash_memory_mapped();
-  psram_memoryMap();
 
   volatile uint32_t const * app_vector = (volatile uint32_t const*) BOARD_FLASH_APP_START;
   // TODO protect bootloader region

@@ -124,7 +124,9 @@ static bool check_dfu_mode(void)
   // App want to reboot quickly
   if (DBL_TAP_REG == DBL_TAP_MAGIC_QUICK_BOOT)
   {
+    TUF2_LOG1_HEX(DBL_TAP_REG);
     DBL_TAP_REG = 0;
+    TU_LOG1("Quick Start\r\n");
     return false;
   }
 

@@ -86,6 +86,9 @@
 
 #define TINYUF2_DFU_DOUBLE_TAP  1
 
+extern uint32_t _board_dfu_dbl_tap[];
+#define DBL_TAP_REG   *(volatile uint32_t *)_board_dfu_dbl_tap
+
 void Error_Handler(void);
 void clock_init(void);
 void dfu_init(void);
