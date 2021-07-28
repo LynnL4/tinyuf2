@@ -34,7 +34,7 @@ ENTRY(Reset_Handler)
 /* Highest address of the user mode stack */
 _estack = ORIGIN(RAM_D1) + LENGTH(RAM_D1);	/* end of "RAM_D1" Ram type memory */
 
-_board_dfu_dbl_tap =  ORIGIN(DTCMRAM) + LENGTH(DTCMRAM);
+_board_dfu_dbl_tap =  ORIGIN(PSRAM) + LENGTH(PSRAM);
 
 _Min_Heap_Size = 0x200 ;	/* required amount of heap  */
 _Min_Stack_Size = 0x400 ;	/* required amount of stack */
@@ -42,11 +42,12 @@ _Min_Stack_Size = 0x400 ;	/* required amount of stack */
 /* Memories definition */
 MEMORY
 {
-  DTCMRAM    (xrw)    : ORIGIN = 0x20000000,   LENGTH = 128K - 4
+  DTCMRAM    (xrw)    : ORIGIN = 0x20000000,   LENGTH = 128K
   ITCMRAM    (xrw)    : ORIGIN = 0x00000000,   LENGTH = 64K
   RAM_D1    (xrw)    : ORIGIN = 0x24000000,   LENGTH = 320K
   RAM_D2    (xrw)    : ORIGIN = 0x30000000,   LENGTH = 32K
   RAM_D3    (xrw)    : ORIGIN = 0x38000000,   LENGTH = 16K
+  PSRAM    (xrw)    : ORIGIN = 0x90000000,   LENGTH = 8*1024K - 4
   FLASH    (rx)    : ORIGIN = 0x8000000,   LENGTH = 512K
 }
 
