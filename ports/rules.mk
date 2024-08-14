@@ -37,9 +37,10 @@ $(BUILD)/$(OUTNAME).elf: $(OBJ)
 	@echo LINK $@
 	@$(CC) -o $@ $(LDFLAGS) $(addprefix $(LD_SCRIPT_FLAG), $(LD_FILES)) $^ -Wl,--print-memory-usage -Wl,--start-group $(LIBS) -Wl,--end-group
 
+OBJCOPY_BIN_OPTION ?=
 $(BUILD)/$(OUTNAME).bin: $(BUILD)/$(OUTNAME).elf
 	@echo CREATE $@
-	@$(OBJCOPY) -O binary $^ $@
+	@$(OBJCOPY) -O binary  $(OBJCOPY_BIN_OPTION)  $^ $@
 
 # skip hex rule if building bootloader for imxrt since it needs spceial rule
 ifneq ($(PORT)$(BUILD_APPLICATION),mimxrt10xx)

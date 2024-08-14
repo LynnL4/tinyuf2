@@ -11,6 +11,9 @@ deps_mandatory = {}
 # Optional Dependencies per MCU
 # path, url, commit, family (Alphabet sorted by path)
 deps_optional = {
+    'lib/mcu/renesas/fsp': ['https://github.com/renesas/fsp.git',
+                           'd52e5a6a59b7c638da860c2bb309b6e78e752ff8',
+                           'ra'],
     'lib/mcu/nxp/mcux-sdk': ['https://github.com/nxp-mcuxpresso/mcux-sdk.git',
                              '9990f264f98430f6d885041ab0f24224d68f4958',
                              'kinetis_k kinetis_k32l2 kinetis_kl lpc51 lpc54 lpc55 mcx mimxrt10xx'],
